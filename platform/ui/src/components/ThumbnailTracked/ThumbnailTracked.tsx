@@ -20,6 +20,7 @@ const ThumbnailTracked = ({
   viewportIdentificator,
   isTracked,
   isActive,
+  idx,
 }) => {
   const trackedIcon = isTracked ? 'circled-checkmark' : 'dotted-circle';
   const viewportIdentificatorLabel = viewportIdentificator.join(', ');
@@ -55,7 +56,7 @@ const ThumbnailTracked = ({
   return (
     <div
       className={classnames(
-        'flex flex-row flex-1 px-3 py-2 cursor-pointer outline-none',
+        'flex flex-row flex-1 px-3 py-2 outline-none',
         className
       )}
       id={`thumbnail-${displaySetInstanceUID}`}
@@ -63,7 +64,7 @@ const ThumbnailTracked = ({
       <div className="flex flex-col items-center flex-2">
         <div
           className={classnames(
-            'flex flex-col items-center justify-start p-2 mb-2 relative cursor-pointer',
+            'flex flex-col items-center justify-start p-2 mb-2 relative',
             isTracked && 'rounded-sm hover:bg-gray-900'
           )}
         >
@@ -71,13 +72,10 @@ const ThumbnailTracked = ({
             position="right"
             content={
               <div className="flex flex-row flex-1">
-                <div className="flex items-center justify-center pr-4 flex-2">
-                  <Icon name="info-link" className="text-primary-active" />
-                </div>
                 <div className="flex flex-col flex-1">
-                  <span>
+                  <span className="text-black">
                     Series is
-                    <span className="text-white">
+                    <span className="text-black font-medium">
                       {isTracked ? ' tracked' : ' untracked'}
                     </span>
                   </span>
@@ -95,11 +93,7 @@ const ThumbnailTracked = ({
           >
             <Icon name={trackedIcon} className="w-4 mb-2 text-primary-light" />
           </Tooltip>
-
-          <div
-            className="text-xl leading-tight text-white text-center"
-            data-cy={'thumbnail-viewport-labels'}
-          >
+          <div className="text-xl leading-tight text-white text-center">
             {renderViewportLabels()}
           </div>
         </div>
@@ -120,6 +114,7 @@ const ThumbnailTracked = ({
         isActive={isActive}
         onClick={onClick}
         onDoubleClick={onDoubleClick}
+        idx={idx}
       />
     </div>
   );

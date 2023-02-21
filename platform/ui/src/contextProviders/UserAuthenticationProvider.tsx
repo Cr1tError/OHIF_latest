@@ -6,6 +6,7 @@ import React, {
   useReducer,
 } from 'react';
 import PropTypes from 'prop-types';
+import {DICOMWeb} from "@ohif/core";
 
 const DEFAULT_STATE = {
   user: null,
@@ -118,8 +119,8 @@ export function UserAuthenticationProvider({ children, service }) {
     getState,
     setUser,
     getUser,
-    getAuthorizationHeader: service.getAuthorizationHeader,
-    handleUnauthenticated: service.handleUnauthenticated,
+    getAuthorizationHeader: DICOMWeb.getAuthorizationHeader(),
+    // handleUnauthenticated: service.handleUnauthenticated,
     reset,
     set,
   };

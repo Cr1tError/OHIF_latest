@@ -2,7 +2,7 @@ import React from 'react';
 
 function ColumnHeaders() {
   return (
-    <div className="m-auto flex flex-col py-2 bg-secondary-light">
+    <div className="m-auto flex flex-col py-2 bg-[#2D3748]">
       <div className="flex flex-row w-full">
         <div className="px-3 w-5/24">
           <label className="flex flex-col flex-1 text-white text-lg pl-1 select-none">
@@ -45,14 +45,14 @@ function DicomTagTable({ rows }) {
         className="m-auto relative border-2 border-secondary-light overflow-hidden ohif-scrollbar"
         style={{ height: '32rem' }}
       >
-        <table className="w-full text-white">
+        <table className="w-full text-black">
           <tbody>
             {rows.map((row, index) => {
               const className = row.className ? row.className : null;
 
               return (
                 <tr
-                  className="hover:bg-secondary-main transition duration-300 bg-primary-dark"
+                  className="hover:bg-comiere-onHover transition duration-300 bg-primary-dark"
                   key={`DICOMTagRow-${index}`}
                 >
                   <td

@@ -1,5 +1,5 @@
 .customSelect__wrapper .customSelect__control {
-  @apply bg-black border-primary-main shadow transition duration-300 border rounded w-full text-sm text-white leading-tight;
+  @apply bg-gray-800 border-primary-main shadow transition duration-300 border rounded w-full text-sm text-white leading-tight;
   min-height: 33px;
 }
 .customSelect__wrapper .customSelect__control:hover {
@@ -93,5 +93,5 @@
 .css-26l3qy-menu {
   border: 2px solid #0944b3;
   border-radius: 6px;
-  background-color: #151515 !important;
+  background-color: #1f2937 !important;
 }

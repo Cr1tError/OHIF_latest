@@ -4,6 +4,7 @@ import { Route, Routes, useLocation, useNavigate } from 'react-router';
 import CallbackPage from '../routes/CallbackPage';
 import SignoutCallbackComponent from '../routes/SignoutCallbackComponent';
 import getUserManagerForOpenIdConnectClient from './getUserManagerForOpenIdConnectClient.js';
+import { DICOMWeb } from '../../../../platform/core/src/DICOMWeb';
 
 function _isAbsoluteUrl(url) {
   return url.includes('http://') || url.includes('https://');
@@ -110,7 +111,7 @@ function OpenIdConnectRoutes({
 
   const getAuthorizationHeader = () => {
     const user = userAuthenticationService.getUser();
-
+      // Authorization: DICOMWeb.getAuthorizationHeader(),
     return {
       Authorization: `Bearer ${user.access_token}`,
     };

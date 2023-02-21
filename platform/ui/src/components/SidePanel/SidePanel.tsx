@@ -138,7 +138,7 @@ const SidePanel = ({
               <IconButton
                 id={`${childComponent.name}-btn`}
                 variant="text"
-                color="inherit"
+                color="initial"
                 size="initial"
                 className="text-primary-active"
                 onClick={() => {
@@ -190,20 +190,20 @@ const SidePanel = ({
               color="inherit"
               border="none"
               rounded="none"
-              className="flex flex-row flex-static items-center px-3 relative w-full"
+              className="flex flex-row flex-static items-center px-3 relative w-full "
               name={tabs.length === 1 ? `${tabs[activeTabIndex].name}` : ''}
             >
               <Icon
                 name={openStateIconName[side]}
                 className={classnames(
-                  'text-primary-active absolute',
+                  'text-comiere-black absolute',
                   side === 'left' && 'order-last'
                 )}
                 style={{ ...position[side] }}
               />
               {/* Todo: ass secondary label here */}
-              <span className="text-primary-active">
-                {tabs.length === 1 && t(tabs[activeTabIndex].label) as string}
+              <span className="text-comiere-black font-medium">
+                {tabs.length === 1 && tabs[activeTabIndex].label}
               </span>
             </Button>
           </div>

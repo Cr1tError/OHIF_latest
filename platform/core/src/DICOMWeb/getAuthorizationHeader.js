@@ -10,8 +10,13 @@ import user from '../user';
  * @param {string|function} [server.requestOptions.auth]
  * @returns {Object} { Authorization }
  */
-export default function getAuthorizationHeader({ requestOptions } = {}, user) {
+export default function getAuthorizationHeader({ requestOptions  } = {}) {
+  // console.log("user:")
+  // console.log(user);
   const headers = {};
+  requestOptions = {
+    auth: 'dicomamd:DcsCom2020@',
+  }
 
   // Check for OHIF.user since this can also be run on the server
   const accessToken = user && user.getAccessToken && user.getAccessToken();
@@ -30,6 +35,7 @@ export default function getAuthorizationHeader({ requestOptions } = {}, user) {
   else if (accessToken) {
     headers.Authorization = `Bearer ${accessToken}`;
   }
-
+  // console.log("headers:");
+  // console.log(headers);
   return headers;
 }

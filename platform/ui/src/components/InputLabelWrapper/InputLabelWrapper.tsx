@@ -7,7 +7,8 @@ import { Icon } from '../';
 
 const baseLabelClassName =
   'flex flex-col flex-1 text-white text-lg pl-1 select-none';
-const spanClassName = 'flex flex-row items-center cursor-pointer focus:outline-none';
+const spanClassName =
+  'flex flex-row items-center cursor-pointer focus:outline-none';
 const sortIconMap = {
   descending: 'sorting-active-up',
   ascending: 'sorting-active-down',
@@ -22,7 +23,7 @@ const InputLabelWrapper = ({
   className,
   children,
 }) => {
-  const { t } = useTranslation("StudyList")
+  const { t } = useTranslation('StudyList');
 
   const onClickHandler = e => {
     if (!isSortable) {
@@ -40,6 +41,7 @@ const InputLabelWrapper = ({
         onClick={onClickHandler}
         onKeyDown={onClickHandler}
         tabIndex="0"
+        style={{ color: 'black' }}
       >
         {t(label)}
         {isSortable && (

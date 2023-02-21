@@ -113,6 +113,7 @@ function _load(segDisplaySet, servicesManager, extensionManager, headers) {
   // We don't want to fire multiple loads, so we'll wait for the first to finish
   // and also return the same promise to any other callers.
   loadPromises[SOPInstanceUID] = new Promise(async (resolve, reject) => {
+
     const { segmentationService } = servicesManager.services;
 
     if (_segmentationExistsInCache(segDisplaySet, segmentationService)) {
@@ -220,6 +221,7 @@ function geometryFromFunctionalGroups(dataset, perFrame) {
   // NB: DICOM PixelSpacing is defined as Row then Column,
   // unlike ImageOrientationPatient
   let spacingBetweenSlices = pixelMeasures.SpacingBetweenSlices;
+
   if (!spacingBetweenSlices) {
     if (pixelMeasures.SliceThickness) {
       console.log('Using SliceThickness as SpacingBetweenSlices');

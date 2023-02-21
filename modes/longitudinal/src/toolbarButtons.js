@@ -338,239 +338,244 @@ const toolbarButtons = [
       ],
     },
   },
-  // More...
   {
-    id: 'MoreTools',
-    type: 'ohif.splitButton',
+    id: 'Reset',
+    type: 'ohif.radioGroup',
     props: {
-      isRadio: true, // ?
-      groupId: 'MoreTools',
-      primary: _createActionButton(
-        'Reset',
-        'tool-reset',
-        'Reset View',
-        [
-          {
-            commandName: 'resetViewport',
-            commandOptions: {},
-            context: 'CORNERSTONE',
+      type: 'tool',
+      icon: 'tool-reset',
+      label: 'Reset View',
+      commands: [
+        {
+          commandName: 'resetViewport',
+          commandOptions: {
+            toolName: 'Reset View',
           },
-        ],
-        'Reset'
-      ),
-      secondary: {
-        icon: 'chevron-down',
-        label: '',
-        isActive: true,
-        tooltip: 'More Tools',
-      },
-      items: [
-        _createActionButton(
-          'Reset',
-          'tool-reset',
-          'Reset View',
-          [
-            {
-              commandName: 'resetViewport',
-              commandOptions: {},
-              context: 'CORNERSTONE',
-            },
-          ],
-          'Reset'
-        ),
-        _createActionButton(
-          'rotate-right',
-          'tool-rotate-right',
-          'Rotate Right',
-          [
-            {
-              commandName: 'rotateViewportCW',
-              commandOptions: {},
-              context: 'CORNERSTONE',
-            },
-          ],
-          'Rotate +90'
-        ),
-        _createActionButton(
-          'flip-horizontal',
-          'tool-flip-horizontal',
-          'Flip Horizontally',
-          [
-            {
-              commandName: 'flipViewportHorizontal',
-              commandOptions: {},
-              context: 'CORNERSTONE',
-            },
-          ],
-          'Flip Horizontal'
-        ),
-        _createToggleButton('StackImageSync', 'link', 'Stack Image Sync', [
-          {
-            commandName: 'toggleStackImageSync',
-            commandOptions: {},
-            context: 'CORNERSTONE',
-          },
-        ]),
-        _createToggleButton(
-          'ReferenceLines',
-          'tool-referenceLines', // change this with the new icon
-          'Reference Lines',
-          [
-            {
-              commandName: 'toggleReferenceLines',
-              commandOptions: {},
-              context: 'CORNERSTONE',
-            },
-          ]
-        ),
-        _createToolButton(
-          'StackScroll',
-          'tool-stack-scroll',
-          'Stack Scroll',
-          [
-            {
-              commandName: 'setToolActive',
-              commandOptions: {
-                toolName: 'StackScroll',
-              },
-              context: 'CORNERSTONE',
-            },
-          ],
-          'Stack Scroll'
-        ),
-        _createActionButton(
-          'invert',
-          'tool-invert',
-          'Invert',
-          [
-            {
-              commandName: 'invertViewport',
-              commandOptions: {},
-              context: 'CORNERSTONE',
-            },
-          ],
-          'Invert Colors'
-        ),
-        _createToolButton(
-          'Probe',
-          'tool-probe',
-          'Probe',
-          [
-            {
-              commandName: 'setToolActive',
-              commandOptions: {
-                toolName: 'DragProbe',
-              },
-              context: 'CORNERSTONE',
-            },
-          ],
-          'Probe'
-        ),
-        _createToggleButton(
-          'cine',
-          'tool-cine',
-          'Cine',
-          [
-            {
-              commandName: 'toggleCine',
-              context: 'CORNERSTONE',
-            },
-          ],
-          'Cine'
-        ),
-        _createToolButton(
-          'Angle',
-          'tool-angle',
-          'Angle',
-          [
-            {
-              commandName: 'setToolActive',
-              commandOptions: {
-                toolName: 'Angle',
-              },
-              context: 'CORNERSTONE',
-            },
-          ],
-          'Angle'
-        ),
-
-        // Next two tools can be added once icons are added
-        // _createToolButton(
-        //   'Cobb Angle',
-        //   'tool-cobb-angle',
-        //   'Cobb Angle',
-        //   [
-        //     {
-        //       commandName: 'setToolActive',
-        //       commandOptions: {
-        //         toolName: 'CobbAngle',
-        //       },
-        //       context: 'CORNERSTONE',
-        //     },
-        //   ],
-        //   'Cobb Angle'
-        // ),
-        // _createToolButton(
-        //   'Planar Freehand ROI',
-        //   'tool-freehand',
-        //   'PlanarFreehandROI',
-        //   [
-        //     {
-        //       commandName: 'setToolActive',
-        //       commandOptions: {
-        //         toolName: 'PlanarFreehandROI',
-        //       },
-        //       context: 'CORNERSTONE',
-        //     },
-        //   ],
-        //   'Planar Freehand ROI'
-        // ),
-        _createToolButton(
-          'Magnify',
-          'tool-magnify',
-          'Magnify',
-          [
-            {
-              commandName: 'setToolActive',
-              commandOptions: {
-                toolName: 'Magnify',
-              },
-              context: 'CORNERSTONE',
-            },
-          ],
-          'Magnify'
-        ),
-        _createToolButton(
-          'Rectangle',
-          'tool-rectangle',
-          'Rectangle',
-          [
-            {
-              commandName: 'setToolActive',
-              commandOptions: {
-                toolName: 'RectangleROI',
-              },
-              context: 'CORNERSTONE',
-            },
-          ],
-          'Rectangle'
-        ),
-        _createActionButton(
-          'TagBrowser',
-          'list-bullets',
-          'Dicom Tag Browser',
-          [
-            {
-              commandName: 'openDICOMTagViewer',
-              commandOptions: {},
-              context: 'DEFAULT',
-            },
-          ],
-          'Dicom Tag Browser'
-        ),
+          context: 'CORNERSTONE',
+        },
       ],
     },
   },
+  {
+    id: 'Invert',
+    type: 'ohif.radioGroup',
+    props: {
+      type: 'tool',
+      icon: 'tool-invert',
+      label: 'Invert',
+      commands: [
+        {
+          commandName: 'invertViewport',
+          commandOptions: {
+            toolName: 'Invert',
+          },
+          context: 'CORNERSTONE',
+        },
+      ],
+    },
+  },
+  {
+    id: 'Rotate',
+    type: 'ohif.radioGroup',
+    props: {
+      type: 'tool',
+      icon: 'tool-rotate-right',
+      label: 'Rotate',
+      commands: [
+        {
+          commandName: 'rotateViewportCW',
+          commandOptions: {
+            toolName: 'Rotate',
+          },
+          context: 'CORNERSTONE',
+        },
+      ],
+    },
+  },
+  {
+    id: 'flip-horizontal',
+    type: 'ohif.radioGroup',
+    props: {
+      type: 'tool',
+      icon: 'tool-flip-horizontal',
+      label: 'Flip horizontal',
+      commands: [
+        {
+          commandName: 'flipViewportHorizontal',
+          commandOptions: {
+            toolName: 'Flip horizontal',
+          },
+          context: 'CORNERSTONE',
+        },
+      ],
+    },
+  },
+  {
+    id: 'StackImageSync',
+    type: 'ohif.radioGroup',
+    props: {
+      type: 'tool',
+      icon: 'link',
+      label: 'Stack Image Sync',
+      commands: [
+        {
+          commandName: 'toggleStackImageSync',
+          commandOptions: {
+            toolName: 'Stack Image Sync',
+          },
+          context: 'CORNERSTONE',
+        },
+      ],
+    },
+  },
+  {
+    id: 'ReferenceLines',
+    type: 'ohif.radioGroup',
+    props: {
+      type: 'tool',
+      icon: 'tool-referenceLines',
+      label: 'Reference Lines',
+      commands: [
+        {
+          commandName: 'toggleReferenceLines',
+          commandOptions: {
+            toolName: 'Reference Lines',
+          },
+          context: 'CORNERSTONE',
+        },
+      ],
+    },
+  },
+  {
+    id: 'StackScroll',
+    type: 'ohif.radioGroup',
+    props: {
+      type: 'tool',
+      icon: 'tool-probe',
+      label: 'Probe',
+      commands: [
+        {
+          commandName: 'setToolActive',
+          commandOptions: {
+            toolName: 'Probe',
+          },
+          context: 'CORNERSTONE',
+        },
+      ],
+    },
+  },
+  {
+    id: 'Probe',
+    type: 'ohif.radioGroup',
+    props: {
+      type: 'tool',
+      icon: 'tool-stack-scroll',
+      label: 'Stack Scroll',
+      commands: [
+        {
+          commandName: 'setToolActive',
+          commandOptions: {
+            toolName: 'Stack Scroll',
+          },
+          context: 'CORNERSTONE',
+        },
+      ],
+    },
+  },
+  {
+    id: 'Angle',
+    type: 'ohif.radioGroup',
+    props: {
+      type: 'tool',
+      icon: 'tool-angle',
+      label: 'Angle',
+      commands: [
+        {
+          commandName: 'setToolActive',
+          commandOptions: {
+            toolName: 'Angle',
+          },
+          context: 'CORNERSTONE',
+        },
+      ],
+    },
+  },
+  {
+    id: 'cine',
+    type: 'ohif.radioGroup',
+    props: {
+      type: 'tool',
+      icon: 'tool-cine',
+      label: 'Cine',
+      commands: [
+        {
+          commandName: 'toggleCine',
+          commandOptions: {
+            toolName: 'Cine',
+          },
+          context: 'CORNERSTONE',
+        },
+      ],
+    },
+  },
+
+  {
+    id: 'Magnify',
+    type: 'ohif.radioGroup',
+    props: {
+      type: 'tool',
+      icon: 'tool-magnify',
+      label: 'Magnify',
+      commands: [
+        {
+          commandName: 'setToolActive',
+          commandOptions: {
+            toolName: 'Magnify',
+          },
+          context: 'CORNERSTONE',
+        },
+      ],
+    },
+  },
+
+  {
+    id: 'Rectangle',
+    type: 'ohif.radioGroup',
+    props: {
+      type: 'tool',
+      icon: 'tool-rectangle',
+      label: 'Rectangle',
+      commands: [
+        {
+          commandName: 'setToolActive',
+          commandOptions: {
+            toolName: 'RectangleROI',
+          },
+          context: 'CORNERSTONE',
+        },
+      ],
+    },
+  },
+  {
+    id: 'TagBrowser',
+    type: 'ohif.radioGroup',
+    props: {
+      type: 'tool',
+      icon: 'list-bullets',
+      label: 'Dicom Tag Browser',
+      commands: [
+        {
+          commandName: 'openDICOMTagViewer',
+          commandOptions: {
+            toolName: 'RectangleROI',
+          },
+          context: 'DEFAULT',
+        },
+      ],
+    },
+  },
+
+  // More...
 ];
 
 export default toolbarButtons;

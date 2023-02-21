@@ -42,7 +42,7 @@ const classes = {
     inherit: '',
   },
   color: {
-    initial: 'text-white',
+    initial: 'text-[#000]',
     inherit: 'text-inherit',
     primary: 'text-primary-main',
     primaryActive: 'text-primary-active',

@@ -1,7 +1,8 @@
 import { imageLoader } from '@cornerstonejs/core';
 import cornerstoneWADOImageLoader from 'cornerstone-wado-image-loader';
 import { api } from 'dicomweb-client';
-import { DICOMWeb, errorHandler } from '@ohif/core';
+import { errorHandler } from '@ohif/core';
+import { DICOMWeb } from '../../../../platform/core/src/DICOMWeb';
 
 const getImageId = imageObj => {
   if (!imageObj) {

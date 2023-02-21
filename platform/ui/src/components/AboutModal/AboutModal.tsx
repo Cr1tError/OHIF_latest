@@ -14,7 +14,7 @@ const Link = ({ href, children, showIcon = false }) => {
       >
         {children}
         {!!showIcon && (
-          <Icon name="external-link" className="w-5 ml-2 text-white" />
+          <Icon name="external-link" className="w-5 ml-2 text-black" />
         )}
       </Typography>
     </a>
@@ -24,7 +24,7 @@ const Link = ({ href, children, showIcon = false }) => {
 const Row = ({ title, value, link }) => {
   return (
     <div className="flex mb-4">
-      <Typography variant="subtitle" component="p" className="w-48 text-white">
+      <Typography variant="subtitle" component="p" className="w-48 text-black">
         {title}
       </Typography>
 
@@ -34,7 +34,7 @@ const Row = ({ title, value, link }) => {
         <Typography
           variant="subtitle"
           component="p"
-          className="w-48 text-white"
+          className="w-48 text-black"
         >
           {value}
         </Typography>

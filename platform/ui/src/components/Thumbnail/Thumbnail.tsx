@@ -5,9 +5,42 @@ import { useDrag } from 'react-dnd';
 import { Icon } from '../';
 import { StringNumber } from '../../types';
 
-/**
- *
- */
+const paletteColorsClasses = [
+  'border border-[#F2884C] group-focus:border-[#F2884C] hover:border-[#F2884C]',
+  'border border-[#D9D9D9] group-focus:border-[#D9D9D9] hover:border-[#D9D9D9]',
+  'border border-[#73B449] group-focus:border-[#73B449] hover:border-[#73B449]',
+  'border border-[#FBC400] group-focus:border-[#FBC400] hover:border-[#FBC400]',
+  'border border-[#A5480B] group-focus:border-[#A5480B] hover:border-[#A5480B]',
+  'border border-[#5A5CD0] group-focus:border-[#5A5CD0] hover:border-[#5A5CD0]',
+  'border border-[#D05A6C] group-focus:border-[#D05A6C] hover:border-[#D05A6C]',
+  'border border-[#525B4D] group-focus:border-[#525B4D] hover:border-[#525B4D]',
+  'border border-[#08215A] group-focus:border-[#08215A] hover:border-[#08215A]',
+];
+
+const activeClasses = [
+  'border-2 border-primary-[#F2884C]',
+  'border-2 border-primary-[#D9D9D9]',
+  'border-2 border-primary-[#73B449]',
+  'border-2 border-primary-[#FBC400]',
+  'border-2 border-primary-[#A5480B]',
+  'border-2 border-primary-[#5A5CD0]',
+  'border-2 border-primary-[#D05A6C]',
+  'border-2 border-primary-[#525B4D]',
+  'border-2 border-primary-[#08215A]',
+];
+
+const textClases = [
+  'text-[#F2884C]',
+  'text-[#D9D9D9]',
+  'text-[#73B449]',
+  'text-[#FBC400]',
+  'text-[#A5480B]',
+  'text-[#5A5CD0]',
+  'text-[#D05A6C]',
+  'text-[#525B4D]',
+  'text-[#08215A]',
+];
+
 const Thumbnail = ({
   displaySetInstanceUID,
   className,
@@ -19,6 +52,7 @@ const Thumbnail = ({
   dragData,
   isActive,
   onClick,
+  idx,
   onDoubleClick,
 }) => {
   // TODO: We should wrap our thumbnail to create a "DraggableThumbnail", as
@@ -49,9 +83,7 @@ const Thumbnail = ({
         <div
           className={classnames(
             'flex flex-1 items-center justify-center rounded-md bg-black text-base text-white overflow-hidden min-h-32',
-            isActive
-              ? 'border-2 border-primary-light'
-              : 'border border-secondary-light group-focus:border-blue-300 hover:border-blue-300'
+            isActive ? `${activeClasses[idx]}` : `${paletteColorsClasses[idx]}`
           )}
           style={{
             margin: isActive ? '0' : '1px',
@@ -69,14 +101,27 @@ const Thumbnail = ({
         </div>
         <div className="flex flex-row items-center flex-1 pt-2 text-base text-blue-300">
           <div className="mr-4">
-            <span className="font-bold text-primary-main">{'S: '}</span>
-            {seriesNumber}
+            <span className={(classnames('font-bold'), textClases[idx])}>
+              {'S: '}
+            </span>
+            <span className={textClases[idx]}>{seriesNumber}</span>
           </div>
           <div className="flex flex-row items-center flex-1">
-            <Icon name="group-layers" className="w-3 mr-2" /> {numInstances}
+            <Icon
+              name="group-layers"
+              className={(classnames('w-3 mr-2'), textClases[idx])}
+              style={{ width: '15px', height: '15px', marginRight: '5px' }}
+            />{' '}
+            <span className={textClases[idx]}>{numInstances}</span>
           </div>
         </div>
-        <div className="text-base text-white break-all">{description}</div>
+        {/* <div className="text-base text-white break-all">{description}</div> */}
+        <div
+          style={{ fontSize: '12px' }}
+          className={(classnames('text-sm break-all'), textClases[idx])}
+        >
+          {description}
+        </div>
       </div>
     </div>
   );

@@ -40,25 +40,39 @@ module.exports = {
       },
 
       primary: {
-        light: '#5acce6',
+        light: '#D9D9D9',
         main: '#0944b3',
-        dark: '#090c29',
+        dark: '#ECECE8',
         active: '#348cfd',
       },
 
       secondary: {
         light: '#3a3f99',
         main: '#2b166b',
-        dark: '#041c4a',
+        dark: '#ECECE8',
         active: '#1f1f27',
       },
 
       common: {
-        bright: '#e1e1e1',
+        bright: 'black',
         light: '#a19fad',
         main: '#fff',
         dark: '#726f7e',
         active: '#2c3074',
+      },
+
+      buttonHover: {
+        default: '#D9D9D9',
+      },
+
+      buttonColor: {
+        black: '#000000',
+      },
+
+      comiere: {
+        black: '#000000',
+        onHover: '#D9D9D9',
+        red: '#ff0000',
       },
 
       customgreen: {
@@ -229,7 +243,7 @@ module.exports = {
       'not-allowed': 'not-allowed',
     },
     fill: {
-      current: 'currentColor',
+      current: 'black',
     },
     flex: {
       '1': '1 1 0%',
@@ -439,7 +453,7 @@ module.exports = {
     placeholderColor: theme => theme('colors'),
     stroke: theme => ({
       ...theme('colors'),
-      current: 'currentColor',
+      current: 'black',
     }),
     strokeWidth: {
       '0': '0',

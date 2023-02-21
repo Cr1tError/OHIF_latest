@@ -341,17 +341,17 @@ function _getStatusComponent(isTracked) {
               <Icon name="info-link" className="w-4 text-primary-main" />
             </div>
             <div className="flex ml-4">
-              <span className="text-base text-common-light">
+              <span className="text-base text-common-dark">
                 {isTracked ? (
                   <>
                     Series is
-                    <span className="font-bold text-white"> tracked</span> and
+                    <span className="font-bold text-black"> tracked</span> and
                     can be viewed <br /> in the measurement panel
                   </>
                 ) : (
                   <>
                     Measurements for
-                    <span className="font-bold text-white"> untracked </span>
+                    <span className="font-bold text-black"> untracked </span>
                     series <br /> will not be shown in the <br /> measurements
                     panel
                   </>

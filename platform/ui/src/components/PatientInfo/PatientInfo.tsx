@@ -42,73 +42,103 @@ function PatientInfo({
               </div>
               <div className="flex flex-col ml-2">
                 <span
-                  className="text-base font-bold text-white"
+                  className="text-base font-bold text-black"
                   title={patientName}
                 >
                   {patientName}
                 </span>
                 <div className="flex pb-4 mt-4 mb-4 border-b border-secondary-main">
                   <div className={classnames(classes.firstRow)}>
-                    <span className={classnames(classes.infoHeader)}>
+                    <span
+                      className={classnames(classes.infoHeader)}
+                      style={{ color: 'black', fontWeight: 'bold' }}
+                    >
                       {t('Sex')}
                     </span>
                     <span
                       className={classnames(classes.infoText)}
                       title={patientSex}
+                      style={{ color: 'black' }}
                     >
                       {patientSex}
                     </span>
                   </div>
                   <div className={classnames(classes.row)}>
-                    <span className={classnames(classes.infoHeader)}>
+                    <span
+                      className={classnames(classes.infoHeader)}
+                      style={{ color: 'black', fontWeight: 'bold' }}
+                    >
                       {t('Age')}
                     </span>
                     <span
                       className={classnames(classes.infoText)}
                       title={patientAge}
+                      style={{ color: 'black' }}
                     >
                       {patientAge}
                     </span>
                   </div>
-                  <div className={classnames(classes.row)}>
-                    <span className={classnames(classes.infoHeader)}>
+                  <div
+                    className={classnames(classes.row)}
+                    style={{ color: 'black' }}
+                  >
+                    <span
+                      className={classnames(classes.infoHeader)}
+                      style={{ color: 'black', fontWeight: 'bold' }}
+                    >
                       {t('MRN')}
                     </span>
-                    <span className={classnames(classes.infoText)} title={MRN}>
+                    <span
+                      className={classnames(classes.infoText)}
+                      title={MRN}
+                      style={{ color: 'black' }}
+                    >
                       {MRN}
                     </span>
                   </div>
                 </div>
                 <div className="flex">
                   <div className={classnames(classes.firstRow)}>
-                    <span className={classnames(classes.infoHeader)}>
+                    <span
+                      className={classnames(classes.infoHeader)}
+                      style={{ color: 'black', fontWeight: 'bold' }}
+                    >
                       {t('Thickness')}
                     </span>
                     <span
                       className={classnames(classes.infoText)}
                       title={thickness}
+                      style={{ color: 'black' }}
                     >
                       {thickness}
                     </span>
                   </div>
                   <div className={classnames(classes.row)}>
-                    <span className={classnames(classes.infoHeader)}>
+                    <span
+                      className={classnames(classes.infoHeader)}
+                      style={{ color: 'black', fontWeight: 'bold' }}
+                    >
                       {t('Spacing')}
                     </span>
                     <span
                       className={classnames(classes.infoText)}
                       title={spacing}
+                      style={{ color: 'black' }}
                     >
                       {spacing}
                     </span>
                   </div>
                   <div className={classnames(classes.row)}>
-                    <span className={classnames(classes.infoHeader)}>
+                    <span
+                      className={classnames(classes.infoHeader)}
+                      style={{ color: 'black', fontWeight: 'bold' }}
+                    >
                       {t('Scanner')}
                     </span>
                     <span
                       className={classnames(classes.infoText)}
                       title={scanner}
+                      style={{ color: 'black' }}
                     >
                       {scanner}
                     </span>

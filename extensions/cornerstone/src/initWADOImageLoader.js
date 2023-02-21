@@ -1,5 +1,6 @@
 import * as cornerstone from '@cornerstonejs/core';
 import { volumeLoader } from '@cornerstonejs/core';
+import { DICOMWeb } from '../../../platform/core/src/DICOMWeb';
 import { cornerstoneStreamingImageVolumeLoader } from '@cornerstonejs/streaming-image-volume-loader';
 import cornerstoneWADOImageLoader, {
   webWorkerManager,
@@ -55,7 +56,8 @@ export default function initWADOImageLoader(
       convertFloatPixelDataToInt: false,
     },
     beforeSend: function(xhr) {
-      const headers = userAuthenticationService.getAuthorizationHeader();
+      const headers = DICOMWeb.getAuthorizationHeader();
+      // const headers = userAuthenticationService.getAuthorizationHeader();
 
       // Request:
       // JPEG-LS Lossless (1.2.840.10008.1.2.4.80) if available, otherwise accept
@@ -69,9 +71,13 @@ export default function initWADOImageLoader(
         // 'multipart/related; type="image/x-jls", multipart/related; type="image/jls"; transfer-syntax="1.2.840.10008.1.2.4.80", multipart/related; type="image/x-jls", multipart/related; type="application/octet-stream"; transfer-syntax=*',
       };
 
-      if (headers && headers.Authorization) {
+
+      if (headers) {
         xhrRequestHeaders.Authorization = headers.Authorization;
       }
+      // if (headers && headers.Authorization) {
+      //   xhrRequestHeaders.Authorization = headers.Authorization;
+      // }
 
       return xhrRequestHeaders;
     },

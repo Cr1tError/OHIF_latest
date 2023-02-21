@@ -10,9 +10,13 @@ const ThumbnailList = ({
   onThumbnailDoubleClick,
   onClickUntrack,
   activeDisplaySetInstanceUIDs = [],
+  idx,
 }) => {
   return (
-    <div className="py-3 bg-black overflow-y-hidden ohif-scrollbar">
+    <div
+      className="py-3 bg-black overflow-y-hidden ohif-scrollbar"
+      style={{ maxHeight: '400px', cursor: 'default' }}
+    >
       {thumbnails.map(
         ({
           displaySetInstanceUID,
@@ -48,6 +52,7 @@ const ThumbnailList = ({
                   imageAltText={imageAltText}
                   viewportIdentificator={viewportIdentificator}
                   isActive={isActive}
+                  idx={idx}
                   onClick={() => onThumbnailClick(displaySetInstanceUID)}
                   onDoubleClick={() =>
                     onThumbnailDoubleClick(displaySetInstanceUID)
@@ -68,6 +73,7 @@ const ThumbnailList = ({
                   viewportIdentificator={viewportIdentificator}
                   isTracked={isTracked}
                   isActive={isActive}
+                  idx={idx}
                   onClick={() => onThumbnailClick(displaySetInstanceUID)}
                   onDoubleClick={() =>
                     onThumbnailDoubleClick(displaySetInstanceUID)

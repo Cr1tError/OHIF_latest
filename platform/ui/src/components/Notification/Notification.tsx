@@ -65,6 +65,7 @@ const Notification = ({
       ref={notificationRef}
       className="flex flex-col p-2 mx-2 mt-2 rounded bg-common-bright"
       data-cy={id}
+      style={{ backgroundColor: '#ECECE8' }}
     >
       <div className="flex grow">
         <Icon name={icon} className={classnames('w-5', color)} />

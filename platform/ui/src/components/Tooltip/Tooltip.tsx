@@ -69,15 +69,16 @@ const Tooltip = ({
       >
         <div
           className={classnames(
-            'relative tooltip-box bg-primary-dark border border-secondary-main text-white text-base rounded inset-x-auto top-full w-max-content',
+            'relative tooltip-box bg-primary-dark border border-secondary-main text-[#3080e8] text-base rounded inset-x-auto top-full w-max-content',
             {
               'py-1 px-4': !tight,
             }
           )}
+          style={{ border: '1px solid #3080e8' }}
         >
           {typeof content === 'string' ? t(content) : content}
           <svg
-            className="absolute h-4 text-primary-dark stroke-secondary-main"
+            className="absolute h-4 text-primary-dark stroke-[#3080e8]"
             style={arrowPositionStyle[position]}
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"

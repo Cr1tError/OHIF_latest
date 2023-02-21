@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import PropTypes from 'prop-types';
+import { ModalityContext } from '../../../../platform/ui/src/contextProviders/ModalityProvider';
 import {
   LayoutSelector as OHIFLayoutSelector,
   ToolbarButton,
@@ -18,6 +19,8 @@ function LayoutSelector({
   const [isOpen, setIsOpen] = useState(false);
   const [disableSelector, setDisableSelector] = useState(false);
   const [viewportGridState, viewportGridService] = useViewportGrid();
+  const { HangingProtocolService, ToolBarService } = servicesManager.services;
+  const { currentModality, setCurrentModality } = useContext(ModalityContext);
 
   const {
     hangingProtocolService,
@@ -56,6 +59,18 @@ function LayoutSelector({
       viewportGridService.setLayout({ numCols: 1, numRows: 1 });
     };
   }, []);
+
+  useEffect(() => {
+    if (
+      currentModality === `CT` ||
+      currentModality === `MR` ||
+      currentModality === `PT\\CT`
+    ) {
+      viewportGridService.setLayout({ numCols: 3, numRows: 2 });
+    } else {
+      viewportGridService.setLayout({ numCols: 1, numRows: 1 });
+    }
+  }, [currentModality]);
 
   const onInteractionHandler = () => setIsOpen(!isOpen);
   const DropdownContent = isOpen ? OHIFLayoutSelector : null;

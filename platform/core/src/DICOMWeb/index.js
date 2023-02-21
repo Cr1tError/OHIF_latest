@@ -5,7 +5,8 @@ import getName from './getName.js';
 import getNumber from './getNumber.js';
 import getString from './getString.js';
 
-const DICOMWeb = {
+export let DICOMWeb;
+DICOMWeb = {
   getAttribute,
   getAuthorizationHeader,
   getModalities,

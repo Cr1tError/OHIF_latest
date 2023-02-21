@@ -13,7 +13,7 @@ const Dropdown = ({ id, children, showDropdownIcon, list, titleClassName }) => {
       <div
         key={title}
         className={classnames(
-          'flex px-4 py-2 cursor-pointer items-center transition duration-300 hover:bg-secondary-main border-b last:border-b-0 border-secondary-main'
+          'flex px-4 py-2 cursor-pointer items-center transition duration-300 hover:bg-comiere-onHover border-b last:border-b-0 border-secondary-main'
         )}
         onClick={() => {
           setOpen(false);
@@ -21,8 +21,8 @@ const Dropdown = ({ id, children, showDropdownIcon, list, titleClassName }) => {
         }}
         data-cy={id}
       >
-        {!!icon && <Icon name={icon} className="w-4 mr-2 text-white" />}
-        <Typography className={titleClassName}>{title}</Typography>
+        {!!icon && <Icon name={icon} className="w-4 mr-2 text-black" />}
+        <Typography className="text-black">{title}</Typography>
       </div>
     );
   }, []);

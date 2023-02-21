@@ -2,7 +2,8 @@ import { ExtensionManager, MODULE_TYPES } from './extensions';
 import { ServicesManager } from './services';
 import classes, { CommandsManager, HotkeysManager } from './classes';
 
-import DICOMWeb from './DICOMWeb';
+// import DICOMWeb from './DICOMWeb';
+import  DICOMWeb from '../../../platform/core/src/DICOMWeb'
 import errorHandler from './errorHandler.js';
 import log from './log.js';
 import object from './object.js';

@@ -33,6 +33,7 @@ const Input = ({
     <div className={classnames('flex flex-col flex-1', containerClassName)}>
       <Label className={labelClassName} text={label}></Label>
       <input
+        style={{ background: '#2D3748' }}
         data-cy={`input-${id}`}
         className={classnames(
           label && 'mt-2',

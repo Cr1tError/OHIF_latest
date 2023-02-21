@@ -1,18 +1,16 @@
 window.config = {
-  routerBasename: '/',
+  routerBasename: '/viewer',
   showStudyList: true,
   // below flag is for performance reasons, but it might not work for all servers
   omitQuotationForMultipartRequest: true,
-  showWarningMessageForCrossOrigin: true,
-  showCPUFallbackMessage: true,
   showLoadingIndicator: true,
   servers: {
     dicomWeb: [
       {
-        name: 'aws',
-        wadoUriRoot: 'https://domvja9iplmyu.cloudfront.net/dicomweb',
-        qidoRoot: 'https://domvja9iplmyu.cloudfront.net/dicomweb',
-        wadoRoot: 'https://domvja9iplmyu.cloudfront.net/dicomweb',
+        name: 'orthanc',
+        wadoUriRoot: 'https://orthd.comiere.com/dicom-web',
+        qidoRoot: 'https://orthd.comiere.com/dicom-web',
+        wadoRoot: 'https://orthd.comiere.com/dicom-web',
         qidoSupportsIncludeField: true,
         imageRendering: 'wadors',
         thumbnailRendering: 'wadors',

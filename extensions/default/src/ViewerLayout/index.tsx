@@ -3,7 +3,11 @@ import PropTypes from 'prop-types';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { useLocation } from 'react-router';
-
+import { useContext, useCallback } from 'react';
+import {
+  ViewportGridContext,
+  ViewportGridProvider,
+} from '../../../../platform/ui/src/contextProviders/ViewportGridProvider';
 import {
   SidePanel,
   ErrorBoundary,
@@ -17,7 +21,7 @@ import i18n from '@ohif/i18n';
 import { hotkeys } from '@ohif/core';
 import { useAppConfig } from '@state';
 import Toolbar from '../Toolbar/Toolbar';
-
+import { ModalityProvider } from '../../../../platform/ui/src/contextProviders/ModalityProvider';
 const { availableLanguages, defaultLanguage, currentLanguage } = i18n;
 
 function ViewerLayout({
@@ -37,6 +41,8 @@ function ViewerLayout({
   const [appConfig] = useAppConfig();
   const navigate = useNavigate();
   const location = useLocation();
+
+  const [state, api] = useContext(ViewportGridContext);
 
   const onClickReturnButton = () => {
     const { pathname } = location;
@@ -124,6 +130,16 @@ function ViewerLayout({
    * or horizontal overflow (no scrolling). Also guarantee window
    * is sized to our viewport.
    */
+
+  useEffect(() => {
+    // console.log(api);
+    // const layoutType = 'grid';
+    // const numRows = 2;
+    // const numCols = 2;
+    // const layoutOptions = [];
+    // api.setLayout({ layoutType, numRows, numCols, layoutOptions });
+  }, []);
+
   useEffect(() => {
     document.body.classList.add('bg-black');
     document.body.classList.add('overflow-hidden');
@@ -199,61 +215,64 @@ function ViewerLayout({
   const viewportComponents = viewports.map(getViewportComponentData);
 
   return (
-    <div>
-      <Header
-        menuOptions={menuOptions}
-        isReturnEnabled={!!appConfig.showStudyList}
-        onClickReturnButton={onClickReturnButton}
-        WhiteLabeling={appConfig.whiteLabeling}
-      >
-        <ErrorBoundary context="Primary Toolbar">
-          <div className="relative flex justify-center">
-            <Toolbar servicesManager={servicesManager} />
-          </div>
-        </ErrorBoundary>
-      </Header>
-      <div
-        className="bg-black flex flex-row items-stretch w-full overflow-hidden flex-nowrap relative"
-        style={{ height: 'calc(100vh - 52px' }}
-      >
-        <React.Fragment>
-          {showLoadingIndicator && (
-            <LoadingIndicatorProgress className="h-full w-full bg-black" />
-          )}
-          {/* LEFT SIDEPANELS */}
-          {leftPanelComponents.length ? (
-            <ErrorBoundary context="Left Panel">
-              <SidePanel
-                side="left"
-                activeTabIndex={leftPanelDefaultClosed ? null : 0}
-                tabs={leftPanelComponents}
-              />
-            </ErrorBoundary>
-          ) : null}
-          {/* TOOLBAR + GRID */}
-          <div className="flex flex-col flex-1 h-full">
-            <div className="flex items-center justify-center flex-1 h-full overflow-hidden bg-black relative">
-              <ErrorBoundary context="Grid">
-                <ViewportGridComp
-                  servicesManager={servicesManager}
-                  viewportComponents={viewportComponents}
-                  commandsManager={commandsManager}
+    <ModalityProvider>
+      <div>
+        <Header
+          menuOptions={menuOptions}
+          isReturnEnabled={!!appConfig.showStudyList}
+          onClickReturnButton={onClickReturnButton}
+          WhiteLabeling={appConfig.whiteLabeling}
+          tabs={rightPanelComponents}
+        >
+          <ErrorBoundary context="Primary Toolbar">
+            <div className="relative flex justify-center">
+              <Toolbar servicesManager={servicesManager} />
+            </div>
+          </ErrorBoundary>
+        </Header>
+        <div
+          className="bg-black flex flex-row items-stretch w-full overflow-hidden flex-nowrap relative"
+          style={{ height: 'calc(100vh - 52px' }}
+        >
+          <React.Fragment>
+            {showLoadingIndicator && (
+              <LoadingIndicatorProgress className="h-full w-full bg-black" />
+            )}
+            {/* LEFT SIDEPANELS */}
+            {leftPanelComponents.length ? (
+              <ErrorBoundary context="Left Panel">
+                <SidePanel
+                  side="left"
+                  activeTabIndex={leftPanelDefaultClosed ? null : 0}
+                  tabs={leftPanelComponents}
                 />
               </ErrorBoundary>
+            ) : null}
+            {/* TOOLBAR + GRID */}
+            <div className="flex flex-col flex-1 h-full">
+              <div className="flex items-center justify-center flex-1 h-full overflow-hidden bg-black relative">
+                <ErrorBoundary context="Grid">
+                  <ViewportGridComp
+                    servicesManager={servicesManager}
+                    viewportComponents={viewportComponents}
+                    commandsManager={commandsManager}
+                  />
+                </ErrorBoundary>
+              </div>
             </div>
-          </div>
-          {rightPanelComponents.length ? (
-            <ErrorBoundary context="Right Panel">
-              <SidePanel
-                side="right"
-                activeTabIndex={rightPanelDefaultClosed ? null : 0}
-                tabs={rightPanelComponents}
-              />
-            </ErrorBoundary>
-          ) : null}
-        </React.Fragment>
+            {rightPanelComponents.length ? (
+              <ErrorBoundary context="Right Panel">
+                <SidePanel
+                  side="right"
+                  activeTabIndex={rightPanelDefaultClosed ? null : 0}
+                  tabs={rightPanelComponents}
+                />
+              </ErrorBoundary>
+            ) : null}
+          </React.Fragment>
+        </div>
       </div>
-    </div>
+    </ModalityProvider>
   );
 }
 

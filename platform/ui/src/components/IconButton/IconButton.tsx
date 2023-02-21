@@ -21,7 +21,7 @@ const disabledClasses = {
 const variantClasses = {
   text: {
     default:
-      'text-white hover:bg-primary-light hover:text-black active:opacity-80 focus:bg-primary-light focus:text-black',
+      'text-white hover:bg-comiere-onHover hover:text-black active:opacity-80 focus:bg-primary-light focus:text-black',
     primary:
       'text-primary-main hover:bg-primary-main hover:text-white active:opacity-80 focus:bg-primary-main focus:text-white',
     secondary:
@@ -89,7 +89,7 @@ const iconSizeClasses = {
   small: 'w-4 h-4',
   medium: 'w-5 h-5',
   large: 'w-6 h-6',
-  toolbar: 'w-5 h-5',
+  toolbar: 'w-6 h-6',
 };
 
 const fullWidthClasses = {

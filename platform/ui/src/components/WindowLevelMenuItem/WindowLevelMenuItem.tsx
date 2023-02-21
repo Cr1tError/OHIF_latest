@@ -5,7 +5,7 @@ import classNames from 'classnames';
 const WindowLevelMenuItem = ({ title, subtitle, isSelected, index }) => (
   <>
     <div className={classNames(
-      'flex flex-row items-center p-3 h-8 w-full hover:bg-primary-dark',
+      'flex flex-row items-center p-3 h-8 w-full hover:bg-comiere-onHover',
       isSelected && 'bg-primary-dark'
     )}
     >

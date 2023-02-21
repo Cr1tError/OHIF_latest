@@ -70,7 +70,7 @@ const classes = {
       baseClasses.Separator,
       isHovering || isExpanded || primary.isActive
         ? 'border-transparent'
-        : 'border-primary-active'
+        : 'border-comiere-black'
     ),
   Content: ({ isExpanded }) =>
     classNames(baseClasses.Content, isExpanded ? 'block' : 'hidden'),
@@ -160,7 +160,7 @@ const SplitButton = ({
     return (
       <div
         className={classNames(
-          'flex flex-row items-center p-3 h-8 w-full hover:bg-primary-dark',
+          'flex flex-row items-center p-3 h-8 w-full hover:bg-comiere-onHover hover:text-comiere-black',
           'text-base whitespace-pre',
           isActive && 'bg-primary-dark',
           isActive
@@ -231,6 +231,7 @@ const SplitButton = ({
                     ...state,
                     primary: { isActive: isPrimaryActive },
                   })}
+                  style={{color: 'black'}}
                 />
               </Tooltip>
             </div>

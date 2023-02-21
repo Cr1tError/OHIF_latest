@@ -3,11 +3,11 @@
 // modules, so it's perfectly fine to serve this code to any browsers
 // (older browsers will just ignore it)
 //
-import { Workbox } from 'https://storage.googleapis.com/workbox-cdn/releases/5.0.0-beta.1/workbox-window.prod.mjs';
+import { Workbox } from 'https://storage.googleapis.com/workbox-cdn/releases/6.5.4/workbox-window.prod.mjs';
 
 var supportsServiceWorker = 'serviceWorker' in navigator;
 var isNotLocalDevelopment =
-  ['localhost', '127'].indexOf(location.hostname) === -1;
+    ['localhost', '127'].indexOf(location.hostname) === -1;
 
 if (supportsServiceWorker && isNotLocalDevelopment) {
   const swFileLocation = (window.PUBLIC_URL || '/') + 'sw.js';
@@ -18,10 +18,10 @@ if (supportsServiceWorker && isNotLocalDevelopment) {
   wb.addEventListener('waiting', event => {
     // customize the UI prompt accordingly.
     const isFirstTimeUpdatedServiceWorkerIsWaiting =
-      event.wasWaitingBeforeRegister === false;
+        event.wasWaitingBeforeRegister === false;
     console.log(
-      'isFirstTimeUpdatedServiceWorkerIsWaiting',
-      isFirstTimeUpdatedServiceWorkerIsWaiting
+        'isFirstTimeUpdatedServiceWorkerIsWaiting',
+        isFirstTimeUpdatedServiceWorkerIsWaiting
     );
 
     // Assumes your app has some sort of prompt UI element

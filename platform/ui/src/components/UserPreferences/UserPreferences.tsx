@@ -103,11 +103,17 @@ const UserPreferences = ({
           border="light"
           onClick={onResetHandler}
           disabled={disabled}
+          style={{ color: '#334155' }}
         >
           {t('Reset to Defaults')}
         </Button>
         <div className="flex flex-row">
-          <Button variant="outlined" border="light" onClick={onCancelHandler}>
+          <Button
+            variant="outlined"
+            border="light"
+            onClick={onCancelHandler}
+            style={{ color: '#334155' }}
+          >
             {t('Cancel')}
           </Button>
           <Button
@@ -117,6 +123,7 @@ const UserPreferences = ({
             border="light"
             className="ml-2"
             onClick={onSubmitHandler}
+            style={{ color: '#334155' }}
           >
             {t('Save')}
           </Button>

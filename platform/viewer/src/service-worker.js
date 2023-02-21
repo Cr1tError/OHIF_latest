@@ -1,7 +1,12 @@
 // https://developers.google.com/web/tools/workbox/guides/troubleshoot-and-debug
 importScripts(
-  'https://storage.googleapis.com/workbox-cdn/releases/5.0.0-beta.1/workbox-sw.js'
+    '/viewer/third_party/workbox/workbox-v6.5.4/workbox-sw.js'
 );
+
+workbox.setConfig({
+    modulePathPrefix: '/viewer/third_party/workbox/workbox-v6.5.4/',
+    // debug: true,
+});
 
 // Install newest
 // https://developers.google.com/web/tools/workbox/modules/workbox-core
@@ -10,10 +15,10 @@ workbox.core.clientsClaim();
 
 // Cache static assets that aren't precached
 workbox.routing.registerRoute(
-  /\.(?:js|css|json5)$/,
-  new workbox.strategies.StaleWhileRevalidate({
-    cacheName: 'static-resources',
-  })
+    /\.(?:js|css|json5)$/,
+    new workbox.strategies.StaleWhileRevalidate({
+        cacheName: 'static-resources',
+    })
 );
 
 // Cache the Google Fonts stylesheets with a stale-while-revalidate strategy.
